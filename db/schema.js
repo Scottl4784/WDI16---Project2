@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise
 
 const ComicsSchema = new Schema({
     title: String,
-    publishedDate: Date,
+    publishedDate: String,
     volumeNumber: Number,
     pageCount: Number,
     price: Number,
@@ -16,16 +16,16 @@ const ComicsSchema = new Schema({
 const SeriesSchema = new Schema({
     title: String,
     totalComics: Number,
-    comics: [ComicsSchema]     
+    comics: [ComicsSchema],
+    description: String   
 })
 
 const UserSchema = new Schema({
     name: String,
+    username: String,
     password: String,
     email: String,
-    series: [SeriesSchema],
-    created_at: Date,
-    updated_at: Date
+    series: [SeriesSchema]
   })
 
 UserSchema.pre('save', function(next) {

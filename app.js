@@ -8,9 +8,9 @@ const mongoose = require('mongoose')
 
 mongoose.connect(process.env.MONGODB_URI) 
 
-const indexRouter = require('./routes/indexController')
-const seriesRouter = require('./routes/seriesController')
-const comicsRouter = require('./routes/comicsController')
+const indexController = require('./routes/indexController')
+const seriesController = require('./routes/seriesController')
+const comicsController = require('./routes/comicsController')
 
 const app = express()
 
@@ -24,9 +24,12 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/series', seriesRouter)
-app.use('/comics', comicsRouter)
-app.use('/', indexRouter)
+app.use('/series', seriesController)
+app.use('/series/:seriesId/comics', comicsController)
+app.use('/', (req, res) => {
+  res.redirect('/login')
+})
+app.use('/login', indexController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

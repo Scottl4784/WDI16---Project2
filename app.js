@@ -24,12 +24,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/series', seriesController)
-app.use('/series/:seriesId/comics', comicsController)
-app.use('/', (req, res) => {
-  res.redirect('/login')
-})
-app.use('/login', indexController)
+app.use('/', indexController)
+app.use('/:username/series', seriesController)
+app.use('/:username/:seriesId/comics', comicsController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -9,7 +9,7 @@ const ComicsSchema = new Schema({
     volumeNumber: Number,
     pageCount: Number,
     price: Number,
-    publisher: String,
+    writer: String,
     description: String
 })
 

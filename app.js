@@ -8,9 +8,9 @@ const mongoose = require('mongoose')
 
 mongoose.connect(process.env.MONGODB_URI) 
 
-const seriesRouter = require('./models/series')
-const usersRouter = require('./models/user')
-const comicsRouter = require('./models/comics')
+const indexRouter = require('./routes/indexController')
+const seriesRouter = require('./routes/seriesController')
+const comicsRouter = require('./routes/comicsController')
 
 const app = express()
 
@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/series', seriesRouter)
 app.use('/comics', comicsRouter)
-app.use('/user', usersRouter)
+app.use('/', indexRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

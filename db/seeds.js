@@ -1,25 +1,24 @@
-require('dotenv').config();
+require('dotenv').config()
 
-const mongoose = require('mongoose');
-const Schema = require("./schema.js");
+const mongoose = require('mongoose')
+const Schema = require("./schema.js")
 
 mongoose.connect(process.env.MONGODB_URI)
 
-const db = mongoose.connection;
+const db = mongoose.connection
 
-// Will log an error if db can't connect to MongoDB
+
 db.on('error', function(err) {
-    console.log(err);
-});
+    console.log(err)
+})
 
-// Will log "database has been connected" if it successfully connects.
 db.once('open', function() {
-    console.log("database has been connected!");
-});
+    console.log("database has been connected!")
+})
 
-const UserModel = Schema.UserModel
-const SeriesModel = Schema.SeriesModel
-const ComicsModel = Schema.ComicsModel
+const UserModel = Schema.User
+const SeriesModel = Schema.Series
+const ComicsModel = Schema.Comics
 
 const scott = new UserModel({
     name: "Scott",
@@ -87,11 +86,11 @@ const spiderman3 = new ComicsModel( {
 
 
 // associating user with series and series with comics
-deadpoolSeries.SeriesModel = [deadpool1, deadpool2, deadpool3]
+deadpoolSeries.comics = [deadpool1, deadpool2, deadpool3]
 
-spidermanSeries.SeriesModel = [spiderman1, spiderman2, spiderman3]
+spidermanSeries.comics = [spiderman1, spiderman2, spiderman3]
 
-scott.UserModel = [deadpoolSeries, spidermanSeries]
+scott.series = [deadpoolSeries, spidermanSeries]
 
 
 const users = [scott]
@@ -101,8 +100,10 @@ users.forEach((user) => {
         .then((user) => {
             console.log(`${user.name} saved!`)
         })
+        .then(() => {
+            db.close()
+        })
         .catch((err) => {
             console.log(err)
         })
 })
-db.close()

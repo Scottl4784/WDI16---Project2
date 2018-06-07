@@ -3,18 +3,13 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 const Schema = require("./schema.js")
 
-mongoose.connect(process.env.MONGODB_URI)
-
-const db = mongoose.connection
-
-
-db.on('error', function(err) {
-    console.log(err)
-})
-
-db.once('open', function() {
-    console.log("database has been connected!")
-})
+mongoose.connect('mongodb://localhost/comic-tracker')
+  .then(() => {
+    console.log('connected to mongoDB')
+  })
+  .catch((err) => {
+    console.log('ERROR', err)
+  })
 
 const UserModel = Schema.User
 const SeriesModel = Schema.Series
@@ -101,7 +96,7 @@ users.forEach((user) => {
             console.log(`${user.name} saved!`)
         })
         .then(() => {
-            db.close()
+            mongoose.disconnect()
         })
         .catch((err) => {
             console.log(err)

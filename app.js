@@ -25,7 +25,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexController)
-app.use('/series', seriesController)
+app.use('/:username/series', seriesController)
 app.use('/:username/:seriesId/comics', comicsController)
 
 // catch 404 and forward to error handler

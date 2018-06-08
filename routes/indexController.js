@@ -1,26 +1,18 @@
 const express = require('express')
 const router = express.Router()
-const UserModel = require('../models/user')
+const User = require('../models/user')
 
 router.get('/', (req, res) => {
-    res.render('index')
+  User.find({}).then((users) => {
+    res.render(
+        'index',
+        { users }
+    )
+  }).catch((error) => {
+    console.log('Error retrieving users from database!');
+    console.log(error);
+  })
 })
-
-router.post('/login', (req, res) => {
-    const userName = req.body.username
-    UserModel.findOne({ 'username': userName })
-        .then((user) => {
-            res.redirect(`/${user.username}`)
-        })
-        .catch((err) => {
-            res.render("error", {
-                message: "User doesn't exist",
-                err
-            })
-        })
-
-})
-
 
 
 module.exports = router

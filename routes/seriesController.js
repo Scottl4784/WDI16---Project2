@@ -1,13 +1,15 @@
 const express = require('express')
 const router = express.Router()
+const User = require('../models/user')
 const Series = require('../models/series')
 
 // Find all series
 router.get('/', (req, res, next) => {
-    Series
+    User
         .find()
         .then((seriesList) => {
-            res.render('series/index', { seriesList: seriesList })
+            const series = User.Series
+            res.render('/index', { seriesList: series })
         })
         .catch((err) => res.send(err))
 })
@@ -32,7 +34,7 @@ router.get('/:id', (req, res) => {
     Series
         .findById(req.params.id)
         .then((seriesList) => {
-            res.render('series/show', {seriesList})
+            res.render('series/show', { seriesList })
         })
 })
 

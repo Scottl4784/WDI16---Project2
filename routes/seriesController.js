@@ -1,31 +1,39 @@
 const express = require('express')
-const router = express.Router()
+const router = express.Router({ mergeParams: true })
 const User = require('../models/user')
 const Series = require('../models/series')
 
 // Find all series
 router.get('/', (req, res, next) => {
+    const userIdToFind = req.params.userId
     User
-        .find()
-        .then((seriesList) => {
-            const series = User.Series
-            res.render('/index', { seriesList: series })
-        })
-        .catch((err) => res.send(err))
+        .findById(userIdToFind)
+        .then((user) => {
+            res.render(
+                'series/index',
+                {
+                    seriesList: user.series
+                },
+            );
+        });
 })
 
 // New
 router.get('/new', (req, res) => {
-    res.render('series/new')
+    const userId = req.params.userId
+    res.render('series/new', {userId})
 })
 
 // Create
 router.post('/', (req, res) => {
-    const newSeries = req.body
-    Series
-        .create(newSeries)
-        .then(() => {
-            res.redirect('/series')
+    const userId = req.params.userId
+    const newSeriesInfo = req.body
+    User
+        .findById(userId)
+        .then((user) => {
+            const newSeries = new Series(newSeriesInfo)
+            user.series.push(newSeries)
+            return user.save()
         })
 })
 

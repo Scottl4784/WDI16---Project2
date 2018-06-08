@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
     Series
         .find()
         .then((seriesList) => {
-            res.render('series/index', { seriesList })
+            res.render('series/index', { seriesList: seriesList })
         })
         .catch((err) => res.send(err))
 })
@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
     Series
         .findById(req.params.id)
         .then((seriesList) => {
-            res.render('series/show', seriesList)
+            res.render('series/show', {seriesList})
         })
 })
 
@@ -42,6 +42,23 @@ router.get('/:id/edit', (req, res) => {
         .findById(req.params.id)
         .then((series) => {
             res.render('series/edit', { seriesList })
+        })
+})
+
+// Update
+router.put('/:id', (req, res) => {
+    Series.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then(() => {
+            res.redirect(`/series/${req.params.id}`)
+        })
+})
+
+// Delete
+router.delete('/:id', (req, res) => {
+    Series.findByIdAndRemove(req.params.id)
+        .then(() => {
+            console.log('Series Deleted')
+            res.redirect('series')
         })
 })
 

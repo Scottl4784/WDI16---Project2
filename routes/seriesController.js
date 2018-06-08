@@ -25,7 +25,7 @@ router.get('/new', (req, res) => {
 })
 
 // Create
-router.post('/', (req, res) => {
+router.post('/:userId/series', (req, res) => {
     const userId = req.params.userId
     const newSeriesInfo = req.body
     User
@@ -34,6 +34,9 @@ router.post('/', (req, res) => {
             const newSeries = new Series(newSeriesInfo)
             user.series.push(newSeries)
             return user.save()
+        })
+        .then((user) => {
+            res.redirect(`/${userId}/series`)
         })
 })
 

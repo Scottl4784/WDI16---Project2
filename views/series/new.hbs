@@ -1,1 +1,15 @@
 <h1>Add New Series</h1>
+
+<form action="/series" method="POST">
+    <div>
+        <label for="title">Series Title</label>
+        <input type="text" name="title" placeholder="Series Title">
+    </div>
+    <div>
+        <label for="description">Series Description</label>
+        <textarea name="description" type="text" placeholder="Series Description"></textarea>
+    </div>
+    <div>
+        <button type="submit">Create Series</button>
+    </div>
+</form>

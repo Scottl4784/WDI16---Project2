@@ -13,30 +13,28 @@ router.get('/', (req, res, next) => {
                 'series/index',
                 {
                     seriesList: user.series
-                },
-            );
-        });
+                }
+            )
+        })
 })
 
 // New
 router.get('/new', (req, res) => {
     const userId = req.params.userId
-    res.render('series/new', {userId})
+    res.render('series/new', { userId })
 })
 
 // Create
-router.post('/:userId/series', (req, res) => {
-    const userId = req.params.userId
-    const newSeriesInfo = req.body
-    User
-        .findById(userId)
+router.post('/', (req, res) => {
+    const newSeries = new Series(req.body)
+
+    User.findById(req.params.userId)
         .then((user) => {
-            const newSeries = new Series(newSeriesInfo)
             user.series.push(newSeries)
             return user.save()
         })
-        .then((user) => {
-            res.redirect(`/${userId}/series`)
+        .then(() => {
+            res.redirect(`/${req.params.userId}/series`)
         })
 })
 

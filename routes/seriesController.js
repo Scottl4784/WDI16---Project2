@@ -65,11 +65,11 @@ router.put('/:id', (req, res) => {
 })
 
 // Delete
-router.delete('/:id', (req, res) => {
-    Series.findByIdAndRemove(req.params.id)
+router.delete('/:userId/series', (req, res) => {
+    Series.findByIdAndRemove(req.params.seriesId)
         .then(() => {
             console.log('Series Deleted')
-            res.redirect('series')
+            res.redirect(`/${req.params.userId}/series`)
         })
 })
 

@@ -5,5 +5,8 @@
     <li>
         <p>{{title}} <br> {{description}}</p>
     </li>
+    <form action="/series/{{@index}}?_method=DELETE" method="POST">
+        <button type="submit">Delete Series</button>
+    </form>
     {{/each}}
 </ul>

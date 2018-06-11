@@ -5,6 +5,7 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 
 mongoose.connect(process.env.MONGODB_URI) 
 

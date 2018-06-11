@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
 })
 
 // Show
-router.get('/:seriesId', (req, res) => {
+router.get('/:seriesId/comics', (req, res) => {
     const userId = req.params.userId
     const seriesId = req.params.seriesId
     const comicsId = req.params.comicsId
@@ -80,7 +80,8 @@ router.delete('/:seriesId', (req, res) => {
     const seriesId = req.params.seriedId
     Series.findByIdAndRemove(seriesId)
         .then(() => {
-            res.redirect(`/user/${userId}/series`)
+            console.log('Series Deleted')
+            res.redirect(`/users/${userId}/series`)
         })
 })
 

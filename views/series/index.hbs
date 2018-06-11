@@ -1,11 +1,13 @@
 <h1>Series</h1>
-
+    <button>
+        <a href="/users/{{userId}}/series/new">Add a Series</a>
+    </button>
 <ul>
     {{#each seriesList}}
     <li>
-        <a href="/users/{{../userId._id}}/series/{{_id}}"><h2>{{title}}</h2></a>  <p>{{description}}</p>
+        <a href="/users/{{../userId._id}}/series/{{_id}}/comics"><h2>{{title}}</h2></a>  <p>{{description}}</p>
     </li>
-    <form action="/users/{{../userId}}/series/{{this._id}}?_method=DELETE" method="POST">
+    <form action="/users/{{../userId._id}}/series/{{_id}}?_method=DELETE" method="POST">
         <button type="submit">Delete Series</button>
     </form>
     {{/each}}

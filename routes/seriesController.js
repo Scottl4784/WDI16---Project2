@@ -29,14 +29,14 @@ router.get('/new', (req, res) => {
 // Create
 router.post('/', (req, res) => {
     const newSeries = new Series(req.body)
-
-    User.findById(req.params.userId)
+    const userId = req.params.userId
+    User.findById(userId)
         .then((user) => {
             user.series.push(newSeries)
             return user.save()
         })
         .then(() => {
-            res.redirect(`/${req.params.userId}/series`)
+            res.redirect(`/users/${req.params.userId}/series`)
         })
 })
 
@@ -75,16 +75,10 @@ router.put('/:id', (req, res) => {
 })
 
 // Delete
-router.delete('/:userId/series', (req, res) => {
+router.delete('/:seriesId', (req, res) => {
     const userId = req.params.userId
     const seriesId = req.params.seriedId
-    User.findById(userId)
-        .then((user) => {
-            const series = user.series.id(seriesId)
-            series.seriesList.id(seriesId).remove()
-
-            return user.save()
-        })
+    Series.findByIdAndRemove(seriesId)
         .then(() => {
             res.redirect(`/user/${userId}/series`)
         })

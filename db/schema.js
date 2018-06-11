@@ -10,7 +10,8 @@ const ComicsSchema = new Schema({
     pageCount: Number,
     price: Number,
     writer: String,
-    description: String
+    description: String,
+    img: String 
 })
 
 const SeriesSchema = new Schema({

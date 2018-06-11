@@ -2,17 +2,19 @@ const express = require('express')
 const router = express.Router({ mergeParams: true })
 const User = require('../models/user')
 const Series = require('../models/series')
+const Comics = require('../models/comics')
 
 // Find all series
 router.get('/', (req, res, next) => {
-    const userIdToFind = req.params.userId
+    const userId = req.params.userId
     User
-        .findById(userIdToFind)
+        .findById(userId)
         .then((user) => {
             res.render(
                 'series/index',
                 {
-                    seriesList: user.series
+                    seriesList: user.series,
+                    userId: user._id
                 }
             )
         })
@@ -39,11 +41,19 @@ router.post('/', (req, res) => {
 })
 
 // Show
-router.get('/:id', (req, res) => {
-    Series
-        .findById(req.params.id)
-        .then((series) => {
-            res.render('series/show', { series })
+router.get('/:seriesId', (req, res) => {
+    const userId = req.params.userId
+    const seriesId = req.params.seriesId
+    const comicsId = req.params.comicsId
+    User
+        .findById(userId)
+        .then((user) => {
+            const series = user.series.id(seriesId)
+            const comics = series.comics.id(comicsId)
+            res.render('series/show', { 
+                comics,
+                series
+             })
         })
 })
 
@@ -52,7 +62,7 @@ router.get('/:id/edit', (req, res) => {
     Series
         .findById(req.params.id)
         .then((series) => {
-            res.render('series/edit', { seriesList })
+            res.render('series/edit', { seriesList: series })
         })
 })
 
@@ -66,10 +76,17 @@ router.put('/:id', (req, res) => {
 
 // Delete
 router.delete('/:userId/series', (req, res) => {
-    Series.findByIdAndRemove(req.params.seriesId)
+    const userId = req.params.userId
+    const seriesId = req.params.seriedId
+    User.findById(userId)
+        .then((user) => {
+            const series = user.series.id(seriesId)
+            series.seriesList.id(seriesId).remove()
+
+            return user.save()
+        })
         .then(() => {
-            console.log('Series Deleted')
-            res.redirect(`/${req.params.userId}/series`)
+            res.redirect(`/user/${userId}/series`)
         })
 })
 

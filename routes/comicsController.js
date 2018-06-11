@@ -7,6 +7,7 @@ const Comics = require('../models/comics')
 router.get('/', (req, res, next) => {
     const userId = req.params.userId
     const seriesId = req.params.seriesId
+    const comicsId = req.params.comicsId
     User
         .findById(userId)
         .then((user) => {

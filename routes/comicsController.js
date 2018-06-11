@@ -7,9 +7,9 @@ const Comics = require('../models/comics')
 router.get('/', (req, res, next) => {
     const userId = req.params.userId
     const seriesId = req.params.seriesId
-    Series
+    User
         .findById(userId)
-        .then((series) => {
+        .then((user) => {
             res.render(
                 'comics/index', {
                     comicsList: series.comics

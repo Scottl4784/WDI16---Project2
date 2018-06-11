@@ -42,8 +42,8 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
     Series
         .findById(req.params.id)
-        .then((seriesList) => {
-            res.render('series/show', { seriesList })
+        .then((series) => {
+            res.render('series/show', { series })
         })
 })
 

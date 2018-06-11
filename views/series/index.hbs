@@ -10,5 +10,6 @@
     <form action="/users/{{../userId._id}}/series/{{_id}}?_method=DELETE" method="POST">
         <button type="submit">Delete Series</button>
     </form>
+    <a href="/users/{{../userId._id}}/series/{{_id}}/edit"><button>Edit Series</button></a>
     {{/each}}
 </ul>

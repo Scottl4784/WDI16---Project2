@@ -59,19 +59,33 @@ router.get('/:seriesId/comics', (req, res) => {
 })
 
 // Edit
-router.get('/:id/edit', (req, res) => {
-    Series
-        .findById(req.params.id)
-        .then((series) => {
-            res.render('series/edit', { seriesList: series })
+router.get('/:seriesId/edit', (req, res) => {
+    const userId = req.params.userId
+    const seriesId = req.params.seriesId
+    User.findById(userId)
+        .then((user) => {
+            const series = user.series.id(seriesId)
+            res.render('series/edit', { 
+                user,
+                series 
+            })
         })
 })
 
 // Update
-router.put('/:id', (req, res) => {
-    Series.findByIdAndUpdate(req.params.id, req.body, { new: true })
+router.put('/:seriesId', (req, res) => {
+    const seriesId = req.params.seriesId
+    const userId = req.params.userId
+    const newSeriesInfo = req.body
+    User.findById(userId)
+        .then((user) => {
+            const series = user.series.id(seriesId)
+            series.title = newSeriesInfo.title
+            series.description = newSeriesInfo.description
+            return user.save()
+        })
         .then(() => {
-            res.redirect(`/series/${req.params.id}`)
+            res.redirect(`/users/${userId}/series`)
         })
 })
 

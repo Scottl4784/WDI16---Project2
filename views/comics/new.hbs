@@ -2,12 +2,13 @@
 
 <form action="/users/{{userId}}/series/{{seriesId}}/comics" method="POST">
     <div>
-        <label for="title">Comics Title</label>
         <input type="text" name="title" placeholder="Comic Title">
     </div>
     <div>
-        <label for="Writer">Writer</label>
-        <textarea name="description" type="text" placeholder="Writer"></textarea>
+        <input name="writer" type="text" placeholder="Writer"></textarea>
+    </div>
+    <div>
+        <input name="img" type="text" placeholder="Image URL"></textarea>
     </div>
     <div>
         <button type="submit">Add Comic</button>

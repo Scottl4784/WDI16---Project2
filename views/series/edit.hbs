@@ -1,0 +1,12 @@
+<h1>Edit {{series.title}}</h1>
+<form action="/users/{{user._id}}/series/{{series._id}}?_method=PUT" method="POST">
+  <div>
+    <label for="title">Title</label>
+    <input type="text" name="title" value="{{series.title}}" />
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <textarea type="text" name="description">{{series.description}}</textarea>
+  </div>
+  <button type="submit">Update</button>
+</form>

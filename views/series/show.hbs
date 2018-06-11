@@ -1,11 +1,12 @@
 <h1>{{series.title}}</h1>
-<a href="/users/{{user._id}}/series/{{series._id}}/comics/new">Add a Comic</a>
-<ul>
+<a href="/users/{{user._id}}/series/{{series._id}}/comics/new"><button>Add a Comic</button></a>
+<ul class="series-list">
     {{#each series.comics}}
     <li>
-        <img src="{{this.img}}">
+        
         <a href="/users/{{../user._id}}/series/{{../series._id}}/comics/{{this._id}}">
-            <h2>{{this.title}}</h2>
+            <p>{{this.title}}</p>
+            <img src="{{this.img}}">
         </a>
         <form action="/users/{{../user._id}}/series/{{../series._id}}/comics/{{_id}}?_method=DELETE" method="POST">
             <button type="submit">Remove Comic</button>

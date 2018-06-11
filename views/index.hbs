@@ -3,7 +3,9 @@
 <ul>
     {{#each users}}
     <li>
-        <p>{{name}}</p>
+        <a href="/users/{{this._id}}/series">
+            <p>{{name}}</p>
+        </a>
     </li>
     {{/each}}
 </ul>

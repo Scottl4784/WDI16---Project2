@@ -10,8 +10,7 @@ router.get('/', (req, res) => {
         { users }
       )
     }).catch((error) => {
-      console.log('Error retrieving users from database!');
-      console.log(error);
+      console.log(error)
     })
 })
 

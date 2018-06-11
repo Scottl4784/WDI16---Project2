@@ -1,8 +1,15 @@
 body {
+  text-align: center;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+img {
+  max-width: 150px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 a {
   color: #00B7FF;
 }

@@ -21,18 +21,22 @@ router.get('/', (req, res, next) => {
 // New
 router.get('/new', (req, res) => {
     const userId = req.params.userId
-    res.render('comics/new', { userId })
+    const seriesId = req.params.seriesId
+    const comicsId = req.params.comicsId
+    res.render('comics/new', { 
+        userId,
+        seriesId
+     })
 })
 
 // Create
 router.post('/', (req, res) => {
-    const newComic = new Comic(req.body)
+    const newComic = new Comics(req.body)
     const userId = req.params.userId
     const seriesId = req.params.seriesId
     User.findById(userId)
         .then((user) => {
-            const series = user.series
-            series.comics.push(newComic)
+            user.series.id(seriesId).comics.push(newComic)
             return user.save()
         })
         .then(() => {
@@ -41,7 +45,7 @@ router.post('/', (req, res) => {
 })
 
 // Show
-router.get('/comics/:comicsId', (req, res) => {
+router.get('/:comicsId', (req, res) => {
     const userId = req.params.userId
     const seriesId = req.params.seriesId
     const comicsId = req.params.comicsId
@@ -55,6 +59,22 @@ router.get('/comics/:comicsId', (req, res) => {
                 series,
                 user
              })
+        })
+})
+
+// Delete
+router.delete('/:comicsId', (req, res) => {
+    const userId = req.params.userId
+    const seriesId = req.params.seriesId
+    const comicsId = req.params.comicsId
+    User.findById(userId)
+        .then((user) => {
+            user.series.id(seriesId).comics.id(comicsId).remove()
+            return user.save()
+        })
+        .then(() => {
+            console.log('Series Deleted')
+            res.redirect(`/users/${userId}/series/${seriesId}/comics`)
         })
 })
 

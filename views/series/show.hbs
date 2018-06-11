@@ -3,7 +3,8 @@
 <ul>
     {{#each series.comics}}
     <li>
-        <h2>{{this.title}}</h2>
+        <img src="{{this.img}}">
+        <a href="/users/{{../user._id}}/series/{{../series._id}}/comics/{{this._id}}"><h2>{{this.title}}</h2></a>  
     </li>
     {{/each}}
 </ul>

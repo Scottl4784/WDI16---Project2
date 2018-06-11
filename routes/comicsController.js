@@ -40,4 +40,22 @@ router.post('/', (req, res) => {
         })
 })
 
+// Show
+router.get('/comics/:comicsId', (req, res) => {
+    const userId = req.params.userId
+    const seriesId = req.params.seriesId
+    const comicsId = req.params.comicsId
+    User
+        .findById(userId)
+        .then((user) => {
+            const series = user.series.id(seriesId)
+            const comics = series.comics.id(comicsId)
+            res.render('comics/show', { 
+                comics,
+                series,
+                user
+             })
+        })
+})
+
 module.exports = router

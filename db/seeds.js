@@ -42,7 +42,8 @@ User.remove()
             publishedDate: "November 04, 2015",
             volumeNumber: 1,
             price: 4.99,
-            writer: "Gerry Duggan"
+            writer: "Gerry Duggan",
+            img: "https://i.annihil.us/u/prod/marvel/i/mg/8/a0/562e73baa2c04/detail.jpg"
         })
         const deadpool2 = new ComicsModel({
             title: "Deadpool #2",

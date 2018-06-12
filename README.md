@@ -6,8 +6,8 @@
 
     # Technologies Used
 
-        * Languages - HTML5, Javascript, Backend - Express, Handlebars, and MongoDB
-        * Planning - Trello and Figma
+        Languages - HTML5, Javascript, Backend - Express, Handlebars, and MongoDB
+        Planning - Trello and Figma
         Hosting - Heroku
 
     # Project Planning

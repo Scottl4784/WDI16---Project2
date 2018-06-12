@@ -14,13 +14,14 @@ ul {
   padding: 0;
 }
 a {
-  color: #00B7FF;
+  color: #F44336;
 }
 a.unstyled-links {
   color: inherit;
 }
 .nav-extended {
   margin: 0 0 20px 0;
+  background-color: rgb(78, 78, 78);
 }
 ul.comics-list {
   margin: 0;
@@ -28,6 +29,10 @@ ul.comics-list {
 a.brand-logo {
   position: relative;
 }
+.btn, .btn-large, .btn-small {
+  background-color: #F44336;
+}
+
 @media screen and (max-width: 992px) {
   a.brand-logo {
     position: absolute;

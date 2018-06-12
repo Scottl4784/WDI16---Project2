@@ -24,7 +24,7 @@ router.get('/new', (req, res) => {
 // Create
 router.post('/', (req, res) => {
   const newUser = req.body
-    User.create(newUser) 
+  User.create(newUser)
     .then(() => {
       res.redirect('/users')
     })
@@ -33,6 +33,18 @@ router.post('/', (req, res) => {
     })
 })
 
+// Delete
+router.delete('/:userId', (req, res) => {
+  const userId = req.params.userId
+  User.findByIdAndRemove(userId)
+    .then((user) => {
+      return user.save()
+    })
+    .then(() => {
+      console.log('Series Deleted')
+      res.redirect(`/users`)
+    })
+})
 
 
 module.exports = router

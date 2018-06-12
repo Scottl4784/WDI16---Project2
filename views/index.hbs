@@ -1,10 +1,21 @@
+<div class="row">
+    <br>
+    <div class="col s1 offset-s11">
+        <a href="/users/new">
+            <button class="btn-floating btn-large waves-effect waves-light red">+</button>
+        </a>
+    </div>
+</div>
 <ul>
     {{#each users}}
     <li>
         <a href="/users/{{this._id}}/series">
-            <h3>{{name}}</h3>
+            <h2>{{name}}</h2>
         </a>
+        <form action="/users/{{this._id}}?_method=DELETE" method="POST">
+            <button type="submit" class="waves-effect waves-light btn-small">Remove User</button>
+        </form>
     </li>
     {{/each}}
 </ul>
-<a href="/users/new"><button class="waves-effect waves-light btn-small">Add a User</button></a>
+<br>

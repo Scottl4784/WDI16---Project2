@@ -16,9 +16,6 @@ ul {
 a {
   color: #00B7FF;
 }
-a.brand-logo {
-  text-align: center; 
-}
 a.unstyled-links {
   color: inherit;
 }
@@ -27,4 +24,7 @@ a.unstyled-links {
 }
 ul.comics-list {
   margin: 0;
+}
+a.brand-logo {
+  position: relative;
 }

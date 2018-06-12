@@ -6,7 +6,8 @@ Comic Tracker is an app that allows you to collect the information from your phy
 
    ## Technologies Used
 
-  *  Languages - HTML5, Javascript, Backend - Express, Handlebars, and MongoDB
+  *  Languages - HTML5, Javascript 
+  *  Backend - Express, Handlebars, and MongoDB
   *  Planning - Trello and Figma
   *  Hosting - Heroku
 

@@ -39,7 +39,7 @@ a.brand-logo {
 h1, h2 {
   margin: 0 0 15px 0;
 }
-input {
+input, textarea {
   color: white;
   text-align: center;
 }

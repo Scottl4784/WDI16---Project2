@@ -1,9 +1,8 @@
  body {
   text-align: center;
-  /* padding: 50px; */
   display: -ms-grid;
 }
-img {
+img.comics-images {
   max-width: 150px;
 }
 ul {
@@ -13,6 +12,9 @@ ul {
 a {
   color: #00B7FF;
 }
-.series-list {
-  
+a.brand-logo {
+  text-align: center; 
+}
+a.unstyled-links {
+  color: inherit;
 }

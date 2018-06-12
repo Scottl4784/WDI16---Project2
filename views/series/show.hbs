@@ -6,7 +6,7 @@
         
         <a href="/users/{{../user._id}}/series/{{../series._id}}/comics/{{this._id}}">
             <p>{{this.title}}</p>
-            <img src="{{this.img}}">
+            <img class="comics-images" src="{{this.img}}">
         </a>
         <form action="/users/{{../user._id}}/series/{{../series._id}}/comics/{{_id}}?_method=DELETE" method="POST">
             <button type="submit">Remove Comic</button>

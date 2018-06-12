@@ -29,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexController)
 app.use('/users', indexController)
 app.use('/users/:userId/series', seriesController)
+app.use('/users/:userId/series/:seriesId', seriesController)
 app.use('/users/:userId/series/:seriesId/comics/', comicsController)
 
 // catch 404 and forward to error handler

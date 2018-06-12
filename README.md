@@ -18,7 +18,7 @@ Comic Tracker is an app that allows you to collect the information from your phy
    * GitHub - https://github.com/Scottl4784/WDI16---Project2
         
         
-   # Future Development
+   ## Future Development
    * Add a search function to allow users to search through the comics information
    * Better styling and format
    * Add a user login page that requires a password

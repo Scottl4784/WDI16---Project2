@@ -5,6 +5,9 @@
 img.comics-images {
   max-width: 150px;
 }
+img.comics-image {
+  max-width: 200px;
+}
 ul {
   list-style-type: none;
   padding: 0;

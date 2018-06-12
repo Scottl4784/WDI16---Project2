@@ -10,20 +10,19 @@
 </div>
 
 <div class="row">
-<ul class="series-list">
-    {{#each series.comics}}
-    <div class="col s4">
-    <li>
-
-        <a href="/users/{{../user._id}}/series/{{../series._id}}/comics/{{this._id}}">
-            <p>{{this.title}}</p>
-            <img class="comics-images" src="{{this.img}}">
-        </a>
-        <form action="/users/{{../user._id}}/series/{{../series._id}}/comics/{{_id}}?_method=DELETE" method="POST">
-            <button class="waves-effect waves-light btn-small" type="submit">Remove Comic</button>
-        </form>
-    </li>
-    </div>
-    {{/each}}
-</ul>
+    <ul class="series-list">
+        {{#each series.comics}}
+        <div class="col s4">
+            <li>
+                <a href="/users/{{../user._id}}/series/{{../series._id}}/comics/{{this._id}}">
+                    <p>{{this.title}}</p>
+                    <img class="comics-images" src="{{this.img}}">
+                </a>
+                <form action="/users/{{../user._id}}/series/{{../series._id}}/comics/{{_id}}?_method=DELETE" method="POST">
+                    <button class="waves-effect waves-light btn-small" type="submit">Remove Comic</button>
+                </form>
+            </li>
+        </div>
+        {{/each}}
+    </ul>
 </div>

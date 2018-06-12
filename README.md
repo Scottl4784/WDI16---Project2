@@ -2,7 +2,7 @@
 
    ## Overview 
 
-        Comic Tracker is an app that allows you to collect the information from your physical comic books you have and store them online. In working on this project I tried to design something that would give the user an easy way to track their comics collection and to see useful information about those comics.
+Comic Tracker is an app that allows you to collect the information from your physical comic books you have and store them online. In working on this project I tried to design something that would give the user an easy way to track their comics collection and to see useful information about those comics.
 
    ## Technologies Used
 
@@ -18,7 +18,7 @@
    * GitHub - https://github.com/Scottl4784/WDI16---Project2
         
         
-    # Future Development
-        - Add a search function to allow users to search through the comics information
-        - Better styling and format
-        - Add a user login page that requires a password
+   # Future Development
+   * Add a search function to allow users to search through the comics information
+   * Better styling and format
+   * Add a user login page that requires a password

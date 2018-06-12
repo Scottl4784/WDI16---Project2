@@ -1,7 +1,8 @@
  body {
   text-align: center;
   display: -ms-grid;
-  background-color: rgb(200, 200, 200);
+  color: white;
+  background-image: url('../images/comics-collage.png')
 }
 img.comics-images {
   max-width: 150px;
@@ -20,8 +21,8 @@ a.unstyled-links {
   color: inherit;
 }
 .nav-extended {
-  margin: 0 0 20px 0;
-  background-color: rgb(78, 78, 78);
+  /* margin: 0 0 20px 0; */
+  background-color: rgb(244,67,54);
 }
 ul.comics-list {
   margin: 0;
@@ -31,6 +32,16 @@ a.brand-logo {
 }
 .btn, .btn-large, .btn-small {
   background-color: #F44336;
+}
+.background {
+  background-color: rgba(0, 0, 0, 0.80);
+}
+h1, h2 {
+  margin: 0 0 15px 0;
+}
+input {
+  color: white;
+  text-align: center;
 }
 
 @media screen and (max-width: 992px) {

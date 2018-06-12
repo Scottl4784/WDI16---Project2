@@ -1,32 +1,29 @@
-<head>
-  <title>{{title}}</title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<h1>{{comics.title}}</h1>
-<ul class='comics-list'>
-  <li>
-    <img class="comics-image" src="{{comics.img}}" alt="">
-  </li>
-  <li>Volume Number: {{comics.volumeNumber}}</li>
-  <li>
-    <p>Writer: {{comics.writer}}</p>
-  </li>
-  <li>
-    <p>Price: {{comics.price}}</p>
-  </li>
-  <li>
-    <p>Publish Date: {{comics.publishedDate}}</p>
-  </li>
-  <div class="row">
-                <div class="col s3 offset-s3">
-                    <form action="/users/{{user._id}}/series/{{series._id}}/comics/{{comics._id}}?_method=DELETE" method="POST">
-                        <button type="submit" class="waves-effect waves-light btn-small">Remove Comic</button>
-                    </form>
-                </div>
-                <div class="col s3">
-                    <a href="/users/{{user._id}}/series/{{series._id}}/comics/{{comics._id}}/edit">
-                        <button class="waves-effect waves-light btn-small">Edit Comic</button>
-                    </a>
-                </div>
-            </div>
-</ul>
+  <h2>{{comics.title}}</h2>
+  <ul class='comics-list'>
+    <li>
+      <img class="comics-image" src="{{comics.img}}" alt="">
+    </li>
+    <li>Volume Number: {{comics.volumeNumber}}</li>
+    <li>
+      <p>Writer: {{comics.writer}}</p>
+    </li>
+    <li>
+      <p>Price: {{comics.price}}</p>
+    </li>
+    <li>
+      <p>Publish Date: {{comics.publishedDate}}</p>
+    </li>
+    <div class="row">
+      <div class="col s3 offset-s3">
+        <form action="/users/{{user._id}}/series/{{series._id}}/comics/{{comics._id}}?_method=DELETE" method="POST">
+          <button type="submit" class="waves-effect waves-light btn-small">Remove Comic</button>
+        </form>
+      </div>
+      <div class="col s3">
+        <a href="/users/{{user._id}}/series/{{series._id}}/comics/{{comics._id}}/edit">
+          <button class="waves-effect waves-light btn-small">Edit Comic</button>
+        </a>
+      </div>
+    </div>
+  </ul>
+  <br>

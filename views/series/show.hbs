@@ -1,28 +1,29 @@
-<div class="row">
-    <div class="col s4">
-        <h1>{{series.title}}</h1>
-    </div>
-    <div class="col s2 offset-s6" id="add-button">
-        <a href="/users/{{user._id}}/series/{{series._id}}/comics/new">
-            <button class="btn-floating btn-large waves-effect waves-light red">+</button>
-        </a>
-    </div>
-</div>
-
-<div class="row">
-    <ul class="series-list">
-        {{#each series.comics}}
+    <div class="row">
         <div class="col s4">
-            <li>
-                <a href="/users/{{../user._id}}/series/{{../series._id}}/comics/{{this._id}}">
-                    <p>{{this.title}}</p>
-                    <img class="comics-images" src="{{this.img}}">
-                </a>
-                <form action="/users/{{../user._id}}/series/{{../series._id}}/comics/{{_id}}?_method=DELETE" method="POST">
-                    <button class="waves-effect waves-light btn-small" type="submit">Remove Comic</button>
-                </form>
-            </li>
+            <h1>{{series.title}}</h1>
         </div>
-        {{/each}}
-    </ul>
-</div>
+        <div class="col s2 offset-s6" id="add-button">
+            <a href="/users/{{user._id}}/series/{{series._id}}/comics/new">
+                <button class="btn-floating btn-large waves-effect waves-light red">+</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <ul class="series-list">
+            {{#each series.comics}}
+            <div class="col s4">
+                <li>
+                    <a href="/users/{{../user._id}}/series/{{../series._id}}/comics/{{this._id}}">
+                        <p>{{this.title}}</p>
+                        <img class="comics-images" src="{{this.img}}">
+                    </a>
+                    <form action="/users/{{../user._id}}/series/{{../series._id}}/comics/{{_id}}?_method=DELETE" method="POST">
+                        <button class="waves-effect waves-light btn-small" type="submit">Remove Comic</button>
+                    </form>
+                </li>
+            </div>
+            {{/each}}
+        </ul>
+    </div>
+    <br>

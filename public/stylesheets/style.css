@@ -1,6 +1,7 @@
  body {
   text-align: center;
   display: -ms-grid;
+  background-color: rgb(200, 200, 200);
 }
 img.comics-images {
   max-width: 150px;
@@ -23,4 +24,7 @@ a.unstyled-links {
 }
 .nav-extended {
   margin: 0 0 20px 0;
+}
+ul.comics-list {
+  margin: 0;
 }

@@ -4,6 +4,7 @@ const User = require('../models/user')
 const Series = require('../models/series')
 const Comics = require('../models/comics')
 
+// Find all comics
 router.get('/', (req, res, next) => {
     const userId = req.params.userId
     const seriesId = req.params.seriesId

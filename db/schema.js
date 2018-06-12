@@ -29,18 +29,12 @@ const UserSchema = new Schema({
     series: [SeriesSchema]
   })
 
-UserSchema.pre('save', function(next) {
-  now = new Date()
-  this.updated_at = now
-
-  if (!this.created_at) { this.created_at = now }
-  next()
-})
 
 const UserModel = mongoose.model('User', UserSchema)
 const SeriesModel = mongoose.model('Series', SeriesSchema)
 const ComicsModel = mongoose.model('Comics', ComicsSchema)
 
+// Exports schema
 module.exports = {
   User: UserModel,
   Series: SeriesModel,

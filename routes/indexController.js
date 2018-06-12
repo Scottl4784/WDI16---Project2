@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
 
+// Find Users
 router.get('/', (req, res) => {
   User.find({})
     .then((users) => {
@@ -14,11 +15,13 @@ router.get('/', (req, res) => {
     })
 })
 
+// New
 router.get('/new', (req, res) => {
   const userId = req.params.userId
   res.render('users/new', { userId })
 })
 
+// Create
 router.post('/', (req, res) => {
   const newUser = req.body
     User.create(newUser) 
@@ -28,10 +31,6 @@ router.post('/', (req, res) => {
     .catch((err) => {
       console.log(err)
     })
-})
-
-router.post('/', (req, res) => {
-
 })
 
 

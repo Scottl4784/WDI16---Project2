@@ -28,3 +28,8 @@ ul.comics-list {
 a.brand-logo {
   position: relative;
 }
+@media screen and (max-width: 992px) {
+  a.brand-logo {
+    position: absolute;
+  }
+}

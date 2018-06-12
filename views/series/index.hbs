@@ -1,15 +1,32 @@
-<h1>Series</h1>
-    <button class="waves-effect waves-light btn-small">
-        <a class="unstyled-links" href="/users/{{userId}}/series/new">Add a Series</a>
-    </button>
+<div class="row">
+    <div class="col s4">
+        <h1>Series</h1>
+    </div>
+    <div class="col s2 offset-s6" id="add-button">
+        <a href="/users/{{userId}}/series/new">
+            <button class="btn-floating btn-large waves-effect waves-light red">+</button>
+        </a>
+    </div>
+</div>
 <ul>
     {{#each seriesList}}
     <li>
-        <a href="/users/{{../userId._id}}/series/{{_id}}/comics"><h2>{{title}}</h2></a>  <p>{{description}}</p>
+        <a href="/users/{{../userId._id}}/series/{{_id}}/comics">
+            <h2>{{title}}</h2>
+        </a>
+        <p>{{description}}</p>
     </li>
-    <form action="/users/{{../userId._id}}/series/{{_id}}?_method=DELETE" method="POST">
-        <button type="submit" class="waves-effect waves-light btn-small">Delete Series</button>
-    </form>
-    <a href="/users/{{../userId._id}}/series/{{_id}}/edit"><button class="waves-effect waves-light btn-small">Edit Series</button></a>
+    <div class="row">
+        <div class="col s2 offset-s4">
+            <form action="/users/{{../userId._id}}/series/{{_id}}?_method=DELETE" method="POST">
+                <button type="submit" class="waves-effect waves-light btn-small">Delete Series</button>
+            </form>
+        </div>
+        <div class="col s2 ">
+            <a href="/users/{{../userId._id}}/series/{{_id}}/edit">
+                <button class="waves-effect waves-light btn-small">Edit Series</button>
+            </a>
+        </div>
+    </div>
     {{/each}}
 </ul>

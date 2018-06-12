@@ -1,12 +1,10 @@
-<h1>Welcome to Comic Keeper</h1>
-<a href="/users/new"><button>Add a User</button></a>
-
 <ul>
     {{#each users}}
     <li>
         <a href="/users/{{this._id}}/series">
-            <p>{{name}}</p>
+            <h3>{{name}}</h3>
         </a>
     </li>
     {{/each}}
 </ul>
+<a href="/users/new"><button class="waves-effect waves-light btn-small">Add a User</button></a>

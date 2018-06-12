@@ -16,4 +16,10 @@
         EDR - https://www.figma.com/file/dYDoLqgE0Ou5hKs6r54xVYBK/WDI16---Project-2---EDR
         Heroku - https://gentle-plateau-48072.herokuapp.com/
         Trello - https://trello.com/b/pQIS63xj/wdi16-project-2
+        GitHub - https://github.com/Scottl4784/WDI16---Project2
         
+        
+        Future Development
+            - Add a search function to allow users to search through the comics information
+            - Better styling and format
+            - Add a user login page that requires a password

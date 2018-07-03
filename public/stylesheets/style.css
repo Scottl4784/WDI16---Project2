@@ -2,7 +2,7 @@
   text-align: center;
   display: -ms-grid;
   color: white;
-  background-image: url('../images/comics-collage.png')
+  background-image: url('../images/comics-collage.png');
 }
 img.comics-images {
   max-width: 150px;
@@ -22,7 +22,6 @@ a.unstyled-links {
 }
 .nav-extended {
   background-color: rgb(221, 63, 52);
-  
 }
 ul.comics-list {
   margin: 0;

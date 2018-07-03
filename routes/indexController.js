@@ -15,6 +15,18 @@ router.get('/', (req, res) => {
     })
 })
 
+// Show
+router.get('/:userId/series', (req, res) => {
+  const userId = req.params.userId
+  User.findById(userId)
+    .then((user) => {
+      res.render('users/show', {
+        user,
+        series: user.series
+      })
+    })
+})
+
 // New
 router.get('/new', (req, res) => {
   const userId = req.params.userId
@@ -41,7 +53,6 @@ router.delete('/:userId', (req, res) => {
       return user.save()
     })
     .then(() => {
-      console.log('Series Deleted')
       res.redirect(`/users`)
     })
 })
